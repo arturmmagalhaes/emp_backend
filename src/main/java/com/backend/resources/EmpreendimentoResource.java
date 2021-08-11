@@ -42,7 +42,7 @@ public class EmpreendimentoResource {
 		return ResponseEntity.created(uri).build();
 	}
 	
-	@RequestMapping(value="/updategroup/{id}", method=RequestMethod.PUT)
+	@RequestMapping(value="/update/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<Void> update(@RequestBody EmpreendimentoDTO objDto, @PathVariable String id) {
 		
 		Empreendimento obj = service.fromDTO(objDto);
@@ -52,7 +52,7 @@ public class EmpreendimentoResource {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@RequestMapping(value="/deletegroup/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteById(@PathVariable String id) throws NumberFormatException, Exception{
 		service.delete(Long.parseLong(id));
 		return ResponseEntity.noContent().build();
